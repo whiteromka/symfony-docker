@@ -17,6 +17,6 @@ docker exec -it  symfony-dockerlocal-app-1 cat /etc/os-release - провери�
 apk add --no-cache nano - для nano в symfony-dockerlocal-nginx-1
 
 
-
+====
 mkdir -p docker/xdebug/logs
 chmod -R 777 docker/xdebug/logs
