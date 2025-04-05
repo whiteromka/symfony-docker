@@ -20,6 +20,8 @@ services:
     volumes:
       - ./:/var/www
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/nginx/logs:/var/log/nginx
+      - ./docker/xdebug/logs:/var/www/docker/xdebug/logs
     depends_on:
       - app
 

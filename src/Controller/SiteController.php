@@ -11,7 +11,6 @@ class SiteController extends AbstractController
     #[Route('/', name: 'site_index', methods: ['GET'])]
     public function index(): Response
     {
-        $a = 1;
         return $this->render('site/index.html.twig', [
             'data' => 'some data',
         ]);
@@ -20,7 +19,6 @@ class SiteController extends AbstractController
     #[Route('/page2', name: 'page2', methods: ['GET'])]
     public function page2(): Response
     {
-        $a = 1;
         return $this->render('site/page2.html.twig', [
             'data' => 'some data',
         ]);

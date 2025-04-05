@@ -23,7 +23,7 @@ RUN pecl install xdebug \
 # Создаем рабочую директорию
 WORKDIR /var/www
 
-# Создаем и настраиваем папки var/ (добавлено здесь)
+# Создаем и настраиваем папки var/
 RUN mkdir -p /var/www/var/cache /var/www/var/log && \
     chown -R www-data:www-data /var/www/var && \
     chmod -R 777 /var/www/var
