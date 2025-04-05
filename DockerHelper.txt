@@ -1,0 +1,4 @@
+docker-compose stop - остановить
+docker-compose down - остановить и удалить
+
+docker-compose down  && docker-compose up -d --build - пересобрать все заново
