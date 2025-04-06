@@ -1,5 +1,5 @@
 # Устанавливаем базовый образ PHP с FPM
-FROM php:8.2-fpm
+FROM php:8.3-fpm
 
 # Устанавливаем зависимости
 RUN apt-get update && apt-get install -y \

@@ -9,7 +9,7 @@
 /docker/xdebug/logs
 /var/
 /vendor/
-/xdebug.log
+/helpers/
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
