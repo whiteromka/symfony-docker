@@ -1,0 +1,44 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block title %}Question{% endblock %}
+
+{% block body %}
+    <h1>Question</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ question.id }}</td>
+            </tr>
+            <tr>
+                <th>Заголовок</th>
+                <td>{{ question.title }}</td>
+            </tr>
+            <tr>
+                <th>Текст</th>
+                <td>{{ question.text|raw }}</td>
+            </tr>
+            <tr>
+                <th>Сложность</th>
+                <td>{{ question.difficulty }}</td>
+            </tr>
+            <tr>
+                <th>Категория</th>
+                <td>{{ question.category.value }}</td>
+            </tr>
+            <tr>
+                <th>Статус</th>
+                <td>{{ question.status.value }}</td>
+            </tr>
+            <tr>
+                <th>Создано</th>
+                <td>{{ question.createdAt ? question.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('question_edit', {'id': question.id}) }}">Редактировать</a>
+    <a class="btn btn-info" href="{{ path('question_index') }}">Назад к списку вопросов</a>
+
+{% endblock %}

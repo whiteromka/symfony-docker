@@ -1,0 +1,48 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block title %}Question index{% endblock %}
+
+{% block body %}
+    <h1>Вопросы</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Заголовок</th>
+                <th>Текст</th>
+                <th>Сложность</th>
+                <th>Категория</th>
+                <th>Статус</th>
+                <th>Создано</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for question in questions %}
+            <tr>
+                <td>{{ question.id }}</td>
+                <td>{{ question.title }}</td>
+                <td>{{ question.text|raw }}</td>
+                <td>{{ question.difficulty }}</td>
+                <td>{{ question.category.value }}</td>
+                <td>{{ question.status.value }}</td>
+                <td>{{ question.createdAt ? question.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('question_show', {'id': question.id}) }}">show</a>
+                    <a href="{{ path('question_edit', {'id': question.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('question_new') }}">
+        <i class="fas fa-file-alt me-1"></i>
+        Создать новый вопрос
+    </a>
+{% endblock %}

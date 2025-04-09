@@ -1,0 +1,65 @@
+{{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': true}}) }}
+
+    {# Поле title #}
+<div class="mb-3">
+    {{ form_label(form.title, 'Заголовок вопроса', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.title) }}
+</div>
+
+{# Поле text с возможностью HTML #}
+<div class="mb-3">
+    {{ form_label(form.text, 'Текст вопроса', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.text, {'attr': {'class': 'form-control', 'rows': 5}}) }}
+    <div class="form-text">Можно использовать HTML-разметку</div>
+    {{ form_errors(form.text) }}
+</div>
+
+{# Группа полей в одну строку #}
+<div class="row mb-3">
+    <div class="col-md-3">
+        {{ form_label(form.difficulty, 'Сложность', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.difficulty, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.difficulty) }}
+    </div>
+
+    <div class="col-md-3">
+        {{ form_label(form.category, 'Категория', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.category, {'attr': {'class': 'form-select'}}) }}
+        {{ form_errors(form.category) }}
+    </div>
+
+    <div class="col-md-3">
+        {{ form_label(form.status, 'Статус', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.status, {'attr': {'class': 'form-select'}}) }}
+        {{ form_errors(form.status) }}
+    </div>
+
+    <div class="col-md-3">
+        {{ form_label(form.createdAt, 'Дата создания', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.createdAt, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.createdAt) }}
+    </div>
+</div>
+
+{# Кнопки действий #}
+<div class="d-flex justify-content-between mt-4">
+    <div>
+        <button type="submit" class="btn btn-success me-2">
+            <i class="fas fa-save me-1"></i> {{ button_label|default('Сохранить') }}
+        </button>
+        <a href="{{ path('question_index') }}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left me-1"></i> Назад к списку
+        </a>
+    </div>
+
+    {% if form.delete is defined %}
+        {{ form_row(form.delete, {
+            'label': '<i class="fas fa-trash me-1"></i> Удалить',
+            'attr': {'class': 'btn btn-danger'},
+            'row_attr': {'class': 'mb-0'}
+        }) }}
+    {% endif %}
+</div>
+
+{{ form_end(form) }}
