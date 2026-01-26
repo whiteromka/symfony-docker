@@ -25,13 +25,9 @@ class AuthController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            try {
                 $authService->registerUser($registrationDto);
                 $this->addFlash('success', 'Регистрация прошла успешно. Теперь можно войти!');
                 return $this->redirectToRoute('app_login');
-            } catch (\Exception $e) {
-                $this->addFlash('error', 'Произошла ошибка при регистрации.');
-            }
         }
 
         return $this->render('auth/register.html.twig', [
